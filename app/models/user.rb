@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # Remember to create a migration!
-  has_many :subjects
   has_many :links
+  has_many :subjects, through: :links
 
   include BCrypt
 
