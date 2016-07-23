@@ -4,7 +4,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name, presence: true
       t.string :email, presence: true, uniqueness: true
       t.integer :age, presence:true
-      t.integer :timeframe, presence:true
       t.string :password_hash, presence: true
 
       t.timestamps null: false
