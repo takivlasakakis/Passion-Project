@@ -1,6 +1,6 @@
-  <h1 class="page-header" > <%= current_user.name.capitalize %>'s Profile</h1><br>
+  <h1 align="center" class="page-header" > <%= current_user.name.capitalize %>'s Profile</h1><br>
 
-  <div class="container user_show_body"><br>
+  <div align="center" class="container user_show_body"><br>
 
     <form action="demo_form.asp">
       <% @subjects.each do |subject|  %>
@@ -10,12 +10,12 @@
     </form>
 
 
-    <ul><% @user.links.each do |instance| %>
+    <ul align="center"><% @user.links.each do |instance| %>
 
       <li><% instance.id %>
         <%= instance.title %></a></li>
 
         <% end %>
       </ul>
-
+<br><br><br><br><br><br><br><br>
     </div>
