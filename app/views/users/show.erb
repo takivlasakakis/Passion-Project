@@ -1,21 +1,21 @@
-
-<div class="container user_show_body"><br>
-
-  <form action="demo_form.asp">
-    <% @subjects.each do |subject|  %>
-    <input type="checkbox" name="subject" value="<%= subject.title %>"> <%= subject.title %><br>
-    <% end %>
-    <input type="submit" value="Submit">
-  </form>
-
   <h1 class="page-header" > <%= current_user.name.capitalize %>'s Profile</h1><br>
 
-  <ul><% @user.links.each do |instance| %>
+  <div class="container user_show_body"><br>
 
-    <li><% instance.id %>
-      <%= instance.title %></a></li>
-
+    <form action="demo_form.asp">
+      <% @subjects.each do |subject|  %>
+      <input type="checkbox" name="subject" value="<%= subject.title %>"> <%= subject.title %><br>
       <% end %>
-    </ul>
+      <input type="submit" value="Submit">
+    </form>
 
-  </div>
+
+    <ul><% @user.links.each do |instance| %>
+
+      <li><% instance.id %>
+        <%= instance.title %></a></li>
+
+        <% end %>
+      </ul>
+
+    </div>
