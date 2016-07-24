@@ -11,11 +11,14 @@
 
 
     <ul align="center"><% @user.links.each do |instance| %>
-
       <li><% instance.id %>
         <%= instance.title %></a></li>
-
         <% end %>
       </ul>
-<br><br><br><br><br><br><br><br>
+
     </div>
+
+var ajax = $.ajax({stuff}).done(response)
+$('#mainthing).html(response.results.commentBody)
+.html("<a href=" + response.results.url + ">" "
+<%=

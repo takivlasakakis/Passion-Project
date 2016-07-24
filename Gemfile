@@ -18,6 +18,8 @@ gem 'shotgun'
 
 gem 'faker'
 
+gem 'dotenv'
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'
