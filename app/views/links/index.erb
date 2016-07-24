@@ -1,5 +1,5 @@
-display a list of all links
-<ul align="center"><% @user.links.each do |instance| %>
+<h1 align="center">display a list of all links</h1>
+<ul align="center"><% @links.each do |instance| %>
   <li><% instance.id %>
       <%= instance.title %></a></li>
       <% end %>

@@ -1,16 +1,23 @@
 get '/links' do
 
-  @links = Link.all #define instance variable for view
+  @links = Link.all # will links from the API CALL, extract all the links
+  @request = HTTParty.get('http://api.stackexchange.com/2.2/questions?site=stackoverflow')
+
+  puts response.body, response.code, response.message, response.headers.inspect
 
   erb :'links/index' #show all links view (index)
 
 end
 
-get '/links/new' do
 
-  erb :'links/new' #show new links view
 
-end
+
+
+
+
+
+
+
 
 post '/links' do
 

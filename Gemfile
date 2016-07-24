@@ -19,6 +19,7 @@ gem 'shotgun'
 gem 'faker'
 
 gem 'dotenv'
+gem 'httparty'
 
 group :test do
   gem 'shoulda-matchers'
