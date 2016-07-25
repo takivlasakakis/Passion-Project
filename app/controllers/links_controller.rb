@@ -9,15 +9,39 @@ get '/links' do
 
 
 
-  @links = Link.all # will links from the API CALL, extract all the links
-  p "*" * 80
-  @query = { query: {'api-key': ENV["NYT_API_KEY"], }}
-  p @response2 = HTTParty.get('https://api.nytimes.com/svc/search/v2/articlesearch.json', @query)
-  binding.pry
+  # @links = Link.all # will links from the API CALL, extract all the links
+  # p "*" * 80
+  # #date?, #section_name?
+  # @query = { query: {'api-key': ENV["NYT_API_KEY"]}}
+  # p @response = HTTParty.get('https://api.nytimes.com/svc/search/v2/articlesearch.json', @query)
+  # binding.pry
 
   # @response2["response"]["docs"].first["web_url"] - this returns url
-  # @response2["response"]["docs"].each 20.do ["web_url"] -
+  # @response2["response"]["docs"].first["headline"]["main"] - this returns the headline
 
+  # @response2["response"]["docs"].each 20.do ["web_url"] -
+  #headline["main"]
+  #web_url
+#   q
+# fq
+# section_name:"World"
+# begin_date
+# 20160724
+# end_date
+# 20160724
+# sort
+  uri = URI("https://api.nytimes.com/svc/search/v2/articlesearch.json")
+  http = Net::HTTP.new(uri.host, uri.port)
+  http.use_ssl = true
+  uri.query = URI.encode_www_form({
+    "api-key" => "9eb47e9d25a84f4e95188896aa73f71b",
+    "fq" => "section_name:\"World\"",
+    "begin_date" => "20160724",
+    "end_date" => "20160724"
+    })
+  request = Net::HTTP::Get.new(uri.request_uri)
+  @result = JSON.parse(http.request(request).body)
+  puts @result.inspect
 
   erb :'links/index' #show all links view (index)
 end
