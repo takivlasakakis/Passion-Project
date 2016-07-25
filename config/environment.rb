@@ -18,7 +18,9 @@ require 'logger'
 require 'sinatra'
 require "sinatra/reloader" if development?
 
+require 'httparty'
 
+require 'pry'
 require 'erb'
 require 'dotenv'
 Dotenv.load

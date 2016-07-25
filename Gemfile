@@ -13,7 +13,7 @@ gem 'activerecord', '~>4.2.0'
 gem 'rake'
 
 gem 'bcrypt'
-
+gem 'pry'
 gem 'shotgun'
 
 gem 'faker'
