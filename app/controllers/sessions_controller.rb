@@ -1,9 +1,10 @@
 get '/sessions/new' do
+  p "*" * 80
   erb :'/sessions/new'
 end
 
 post '/sessions/new' do
-  @user = User.authenticate(params[:email], params[:password])
+  @user = User.authenticate(params[:email].downcase, params[:password])
   if @user
     login(@user)
 

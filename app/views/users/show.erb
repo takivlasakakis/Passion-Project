@@ -2,7 +2,7 @@
 
   <div align="center" class="container user_show_body"><br>
 
-    <form action="demo_form.asp">
+    <form action="/links">
       <% @subjects.each do |subject|  %>
       <input type="checkbox" name="subject" value="<%= subject.title %>"> <%= subject.title %><br>
       <% end %>
@@ -11,11 +11,15 @@
 
 
     <ul align="center"><% @user.links.each do |instance| %>
-
       <li><% instance.id %>
         <%= instance.title %></a></li>
-
         <% end %>
       </ul>
-<br><br><br><br><br><br><br><br>
+
     </div>
+
+<!-- var ajax = $.ajax({stuff}).done(response)
+$('#mainthing).html(response.results.commentBody)
+.html("<a href=" + response.results.url + ">" "
+
+ -->
