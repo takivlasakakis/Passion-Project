@@ -2,13 +2,23 @@
 
   <div align="center" class="container user_show_body"><br>
 
-    <form action="/links">
+<!--     <form action="/links">
       <% @subjects.each do |subject|  %>
       <input type="checkbox" name="subject" value="<%= subject.title %>"> <%= subject.title %><br>
       <% end %>
       <input type="submit" value="Submit">
     </form>
-
+ -->
+ <h3>Subjects to choose from</h3>
+ <form action="/links" method="get">
+  <input type="checkbox" name="subject" value="World"> World<br>
+  <input type="checkbox" name="subject" value="U.S." checked="checked"> U.S.<br>
+  <input type="checkbox" name="subject" value="Politics" checked="checked"> Politics<br>
+  <input type="checkbox" name="subject" value="Car" checked="checked"> Tech<br>
+  <input type="date" name="date" value="date" checked="checked"> Date begin<br>
+  <input type="date" name="date" value="date" checked="checked"> Date end<br>
+  <input type="submit" value="Submit">
+</form>
 
     <ul align="center"><% @user.links.each do |instance| %>
       <li><% instance.id %>
