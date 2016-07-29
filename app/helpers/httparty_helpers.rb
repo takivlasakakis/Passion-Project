@@ -1,21 +1,32 @@
 helpers do
-	def nyt_query
+	def nyt_query(subject, start_date, end_date)
+
+		query = {query:
 		{'api-key': ENV['NYT_API_KEY'],
-			'q': "Trump",
-			'begin_date': today,
-			'end_date':  method_to_get_date
+			'fq': "section_name:#{subject}",
+			'begin_date': start_date ,
+			'end_date': end_date }
 		}
-		
 		response = HTTParty.get('https://api.nytimes.com/svc/search/v2/articlesearch.json', query)
 		response = JSON.parse(response.to_json)
 
-		return response[put my parse path here]
+		response
+		
+		# return {first_response: response["response"]["docs"].first["web_url"], second_response: response["response"]["docs"].first["headline"]["main"]}
+		pull_out(response["response"]["docs"])
 	end
 
-	def todays_date
-		Time.now
-	end
+	def pull_out(nyt_hash)
+		result = []
+		counter = 0
+		while counter < 10
+				result << {url: nyt_hash[counter]["web_url"], headline: nyt_hash[counter]["headline"]["main"]}
 
+			counter += 1
+		end
+
+		return result
+	end
 
 end
 
@@ -40,3 +51,18 @@ end
   # request = Net::HTTP::Get.new(uri.request_uri)
   # @result = JSON.parse(http.request(request).body)
   # puts @result.inspect
+
+    # <form action="/links">
+    #   <% @subjects.each do |subject|  %>
+    #   <input type="checkbox" name="subject" value="<%= subject.title %>"> <%= subject.title %><br>
+    #   <% end %>
+    #   <input type="submit" value="Submit">
+    # </form>
+
+    	# def process_request(request)
+	# 	JSON.parse(request.response.body) #(could be JSON.parse(request.response.body))
+	# 	# request['response']['meta']['hits']
+
+ #  		["response"]["docs"].first["web_url"] - this returns url
+ #  		["response"]["docs"].first["headline"]["main"] - this returns the headline
+	# end

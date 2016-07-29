@@ -1,10 +1,11 @@
 
 
 <h1 align="center">display a list of all links</h1>
-<ul align="center"><% @links.each do |instance| %>
-  <li><% instance.id %>
-      <%= instance.title %></a></li>
-      <% end %>
-  </ul>
 
-
+<ul>
+<% @result.each do |hash| %>
+	<li>
+	<a href="<%= hash[:url]%>"><%= hash[:headline] %> </a> 
+	</li>
+<% end %>
+</ul>
